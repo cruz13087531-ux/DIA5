@@ -27,9 +27,9 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            padding: 20px;
+            padding: 15px;
             box-sizing: border-box;
-            overflow: hidden;
+            overflow-x: hidden;
             position: relative;
         }
 
@@ -65,24 +65,24 @@
             max-width: 600px;
             width: 100%;
             background: rgba(255, 255, 255, 0.02);
-            padding: 45px 25px;
+            padding: 35px 20px;
             border-radius: 20px;
             border: 1px solid rgba(223, 186, 107, 0.12);
             box-shadow: 0 20px 45px rgba(0,0,0,0.5);
             backdrop-filter: blur(12px);
+            box-sizing: border-box;
         }
 
         .heart-icon-header {
             color: var(--color-oro-sutil);
-            font-size: 32px;
+            font-size: 28px;
             margin-bottom: 5px;
-            filter: drop-shadow(0 4px 10px rgba(223, 186, 107, 0.2));
         }
 
         h1.main-title {
             font-family: 'Great Vibes', cursive;
             color: #ffffff;
-            font-size: 62px;
+            font-size: 48px;
             font-weight: 400;
             margin: 0 0 5px 0;
             text-shadow: 0 4px 12px rgba(0,0,0,0.6);
@@ -92,9 +92,9 @@
             font-family: 'Playfair Display', serif;
             font-style: italic;
             color: var(--color-oro-sutil);
-            font-size: 17px;
+            font-size: 15px;
             letter-spacing: 1px;
-            margin: 0 0 35px 0;
+            margin: 0 0 25px 0;
             border-bottom: 1px solid rgba(223, 186, 107, 0.2);
             display: inline-block;
             padding-bottom: 12px;
@@ -104,7 +104,7 @@
         .menu-ventanas {
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 14px;
         }
 
         .btn-ventana {
@@ -112,45 +112,32 @@
             background: linear-gradient(135deg, #3d0a10 0%, #1c0306 100%);
             color: #ffffff;
             border: 1px solid rgba(223, 186, 107, 0.15);
-            padding: 18px;
-            font-size: 13.5px;
+            padding: 16px;
+            font-size: 13px;
             font-weight: 500;
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
             border-radius: 12px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            -webkit-tap-highlight-color: transparent;
         }
 
-        .btn-ventana:hover {
-            transform: scale(1.01) translateY(-2px);
-            border-color: var(--color-oro-sutil);
-            box-shadow: 0 6px 20px rgba(223, 186, 107, 0.15);
-            background: linear-gradient(135deg, #4a0d14 0%, #290408 100%);
-        }
-
-        .btn-ventana::before {
-            content: '✉️';
-            margin-right: 12px;
-            opacity: 0.6;
-        }
-
-        /* --- SISTEMA DE VENTANAS EMERGENTES (MODALS) --- */
+        /* --- VENTANAS EMERGENTES --- */
         .ventana-overlay {
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background: rgba(10, 2, 4, 0.9);
+            background: rgba(10, 2, 4, 0.95);
             backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             z-index: 50;
             display: flex;
             justify-content: center;
             align-items: center;
             opacity: 0;
             visibility: hidden;
-            transition: opacity 0.4s ease, visibility 0.4s ease;
-            overflow-y: auto;
-            padding: 20px;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            padding: 10px;
             box-sizing: border-box;
         }
 
@@ -161,70 +148,52 @@
 
         .tarjeta-ventana {
             background-color: var(--color-fondo-panel);
-            padding: 45px 35px;
+            padding: 35px 20px 25px 20px;
             border-radius: 16px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.7);
             max-width: 660px;
             width: 100%;
             position: relative;
-            transform: scale(0.92) translateY(15px);
-            transition: transform 0.4s ease;
-            max-height: 85vh;
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+            max-height: 90vh;
             overflow-y: auto;
-            scrollbar-width: thin;
-            scrollbar-color: var(--color-guindo) var(--color-rosa-romance);
+            box-sizing: border-box;
+            -webkit-overflow-scrolling: touch;
         }
 
         .ventana-overlay.activa .tarjeta-ventana {
-            transform: scale(1) translateY(0);
-        }
-
-        @media (max-width: 500px) {
-            .tarjeta-ventana { padding: 30px 20px; }
+            transform: scale(1);
         }
 
         .btn-cerrar {
             position: absolute;
-            top: 15px; right: 20px;
+            top: 10px; right: 15px;
             background: none;
             border: none;
             color: #9c8486;
-            font-size: 28px;
+            font-size: 32px;
             cursor: pointer;
             z-index: 60;
-            transition: color 0.2s ease;
+            padding: 5px;
         }
-
-        .btn-cerrar:hover {
-            color: var(--color-rojo-pasion);
-        }
-
-        .decoracion-esquina {
-            position: absolute;
-            font-size: 18px;
-            opacity: 0.25;
-            pointer-events: none;
-        }
-        .esquina-sup-izq { top: 20px; left: 20px; }
-        .esquina-sup-der { top: 20px; right: 20px; }
 
         .encabezado-ventana {
             text-align: center;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .ventana-icon {
             color: var(--color-guindo);
-            font-size: 32px;
-            margin-bottom: 5px;
+            font-size: 28px;
         }
 
         h2.ventana-title {
             font-family: 'Montserrat', sans-serif;
             color: var(--color-guindo);
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 700;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
             margin: 5px 0;
             padding-bottom: 6px;
@@ -234,37 +203,23 @@
 
         .bloque-texto {
             color: var(--color-texto);
-            font-size: 16.5px;
-            line-height: 1.85;
+            font-size: 15.5px;
+            line-height: 1.75;
             white-space: pre-line;
             margin-bottom: 20px;
             text-align: left;
         }
 
-        .parrafo-destacado {
-            color: #4f3b3d;
-            font-size: 16px;
-            line-height: 1.8;
-            white-space: pre-line;
-            background-color: var(--color-rosa-romance);
-            padding: 22px;
-            border-radius: 12px;
-            border-left: 3px solid var(--color-guindo);
-            margin-bottom: 30px;
-            font-style: italic;
-        }
-
-        /* --- SECCIÓN PLAYLIST MISTERIOSA --- */
+        /* --- SECCIÓN PLAYLIST OPTIMIZADA PARA CELULAR --- */
         .titulo-playlist-principal {
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
-            font-size: 16px;
+            font-size: 14px;
             color: #ffffff;
             background: linear-gradient(135deg, #42080f 0%, #1f0306 100%);
-            padding: 18px;
+            padding: 15px 12px;
             border-radius: 10px;
-            margin-bottom: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            margin-bottom: 12px;
             text-align: center;
             line-height: 1.4;
             border: 1px solid rgba(223,186,107,0.2);
@@ -273,12 +228,12 @@
         .dedicatoria-playlist-musica {
             background-color: #fcf8f2;
             border: 1px dashed rgba(175, 34, 53, 0.2);
-            padding: 18px;
+            padding: 15px;
             border-radius: 12px;
-            font-size: 15.5px;
+            font-size: 14.5px;
             color: var(--color-texto);
-            line-height: 1.6;
-            margin-bottom: 30px;
+            line-height: 1.5;
+            margin-bottom: 20px;
             text-align: left;
             font-style: italic;
         }
@@ -286,35 +241,29 @@
         .lista-canciones {
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            margin-bottom: 35px;
+            gap: 12px;
+            margin-bottom: 25px;
         }
 
         .tarjeta-cancion {
             background: #ffffff;
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.06);
             border-radius: 12px;
-            padding: 18px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-            transition: all 0.3s ease;
-        }
-
-        .tarjeta-cancion:hover {
-            transform: translateX(3px);
-            box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-            border-left: 3px solid var(--color-rojo-pasion);
+            padding: 14px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.02);
+            box-sizing: border-box;
         }
 
         .reproductor-header {
             display: flex;
             align-items: center;
-            gap: 15px;
-            margin-bottom: 10px;
+            gap: 12px;
+            margin-bottom: 8px;
         }
 
         .btn-reproducir {
-            width: 40px;
-            height: 40px;
+            width: 44px; /* Más grande para el dedo */
+            height: 44px;
             border-radius: 50%;
             background-color: var(--color-guindo);
             color: #ffffff;
@@ -323,14 +272,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 14px;
-            transition: all 0.2s ease;
+            font-size: 15px;
             flex-shrink: 0;
-        }
-
-        .btn-reproducir:hover {
-            background-color: var(--color-rojo-pasion);
-            transform: scale(1.05);
+            -webkit-tap-highlight-color: transparent;
         }
 
         .info-pista {
@@ -341,16 +285,25 @@
         .nombre-pista-label {
             font-family: 'Montserrat', sans-serif;
             font-weight: 600;
-            font-size: 15px;
+            font-size: 14.5px;
             color: var(--color-texto);
             margin: 0;
+        }
+
+        .estado-carga {
+            font-size: 11px;
+            color: #af2235;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            display: none;
+            margin-top: 2px;
         }
 
         .cuadro-dedicatoria {
             background-color: #fafafa;
             border-left: 2px solid #ccc;
-            padding: 10px 14px;
-            font-size: 14px;
+            padding: 10px 12px;
+            font-size: 13.5px;
             line-height: 1.5;
             color: #554143;
             margin: 0;
@@ -360,24 +313,19 @@
 
         .firma-final {
             font-family: 'Great Vibes', cursive;
-            margin-top: 35px;
-            font-size: 44px;
+            margin-top: 25px;
+            font-size: 38px;
             color: #4a0d14;
             text-align: right;
         }
 
         audio { display: none; }
-
-        .tarjeta-ventana::-webkit-scrollbar { width: 6px; }
-        .tarjeta-ventana::-webkit-scrollbar-track { background: var(--color-rosa-romance); }
-        .tarjeta-ventana::-webkit-scrollbar-thumb { background: var(--color-guindo); border-radius: 10px; }
     </style>
 </head>
 <body>
 
     <div class="corazones-fondo" id="elementos-fondo"></div>
 
-    <!-- PANTALLA DE INICIO -->
     <div class="contenedor-inicio">
         <div class="heart-icon-header">✨</div>
         <h1 class="main-title">Para mi Brujita</h1>
@@ -390,15 +338,11 @@
         </div>
     </div>
 
-    <!-- REPRODUCTOR GENERAL -->
-    <audio id="playerGlobal" preload="auto"></audio>
+    <audio id="playerGlobal" preload="auto" playsinline></audio>
 
-    <!-- VENTANA 1: UNA CARTA SIN FECHA -->
     <div class="ventana-overlay" id="ventanaCartaSinFecha" onclick="cerrarVentanaClickFuera(event, 'ventanaCartaSinFecha')">
         <div class="tarjeta-ventana">
             <button class="btn-cerrar" onclick="cerrarVentana('ventanaCartaSinFecha')">&times;</button>
-            <span class="decoracion-esquina esquina-sup-izq">✨</span>
-            <span class="decoracion-esquina esquina-sup-der">✨</span>
             
             <div class="encabezado-ventana">
                 <div class="ventana-icon">✉️</div>
@@ -519,12 +463,9 @@ Entonces todo había valido completamente la pena. ❤️</div>
         </div>
     </div>
 
-    <!-- VENTANA 2: UNA CARTA ESCRITA CON "TE EXTRAÑO" -->
     <div class="ventana-overlay" id="ventanaCartaTeExtrano" onclick="cerrarVentanaClickFuera(event, 'ventanaCartaTeExtrano')">
         <div class="tarjeta-ventana">
             <button class="btn-cerrar" onclick="cerrarVentana('ventanaCartaTeExtrano')">&times;</button>
-            <span class="decoracion-esquina esquina-sup-izq">❤️</span>
-            <span class="decoracion-esquina esquina-sup-der">❤️</span>
 
             <div class="encabezado-ventana">
                 <div class="ventana-icon">✍️</div>
@@ -563,7 +504,7 @@ Pensaba que estaba bien así.
 Y entonces llegaste tú...
 Y cambiaste por completo todo lo que yo creía saber sobre mí.
 
-Now me cuesta imaginar un futuro donde no estés.
+Ahora me cuesta imaginar un futuro donde no estés.
 Porque cuando pensaba en mis planes, inevitablemente aparecía tú.
 Quería que formaras parte de mi presente.
 De mi futuro.
@@ -581,7 +522,7 @@ Gracias por quererme.
 Porque hiciste sentir querido a un hombre que ya se había acostumbrado a caminar solo.
 
 Te amo muchísimo.
-Y si algo quiero que recuerdes después de leer todas estas cartas, es que cada palabra nació desde el lugar más sincero de mi corazón.
+Andando y si algo quiero que recuerdes después de leer todas estas cartas, es que cada palabra nació desde el lugar más sincero de mi corazón.
 
 Bueno...
 Ya hablé demasiado. JAJAJA.
@@ -597,7 +538,6 @@ Bienvenida a la parte donde la música va a decir todo aquello que mi corazón t
         </div>
     </div>
 
-    <!-- VENTANA 3: PLAYLIST (MISTERIOSA Y SIN TIEMPOS) -->
     <div class="ventana-overlay" id="ventanaPlaylist" onclick="cerrarVentanaClickFuera(event, 'ventanaPlaylist')">
         <div class="tarjeta-ventana">
             <button class="btn-cerrar" onclick="cerrarVentana('ventanaPlaylist')">&times;</button>
@@ -611,122 +551,122 @@ Bienvenida a la parte donde la música va a decir todo aquello que mi corazón t
             </div>
 
             <div class="lista-canciones">
-                <!-- CANCIÓN 17 -->
-                <div class="tarjeta-cancion">
+                <div class="tarjeta-cancion" id="tarjeta-cancion17.mp3">
                     <div class="reproductor-header">
                         <button class="btn-reproducir" onclick="switchTrack('cancion17.mp3', 92, 110)">▶</button>
                         <div class="info-pista">
                             <h4 class="nombre-pista-label">Pista Especial 17</h4>
+                            <span class="estado-carga">Cargando...</span>
                         </div>
                     </div>
                     <p class="cuadro-dedicatoria">Solo puedo decir que no importa las horas que pasen, pero siempre me va a encantar ver tus hermosos ojos. Vamos a decirlo así, disociarme viendo tus ojos.</p>
                 </div>
 
-                <!-- CANCIÓN 18 -->
-                <div class="tarjeta-cancion">
+                <div class="tarjeta-cancion" id="tarjeta-cancion18.mp3">
                     <div class="reproductor-header">
                         <button class="btn-reproducir" onclick="switchTrack('cancion18.mp3', 36, 62)">▶</button>
                         <div class="info-pista">
                             <h4 class="nombre-pista-label">Pista Especial 18</h4>
+                            <span class="estado-carga">Cargando...</span>
                         </div>
                     </div>
                     <p class="cuadro-dedicatoria">Cuando te veo en la semana, es una forma de sentir que como que me llenas las pilas de nuevo, por decirlo así. Como que estoy al 100, es como que eres mi cargador emocional.</p>
                 </div>
 
-                <!-- CANCIÓN 19 -->
-                <div class="tarjeta-cancion">
+                <div class="tarjeta-cancion" id="tarjeta-cancion19.mp3">
                     <div class="reproductor-header">
                         <button class="btn-reproducir" onclick="switchTrack('cancion19.mp3', 76, 151)">▶</button>
                         <div class="info-pista">
                             <h4 class="nombre-pista-label">Pista Especial 19</h4>
+                            <span class="estado-carga">Cargando...</span>
                         </div>
                     </div>
                     <p class="cuadro-dedicatoria">Ya la canción dice todo lo que quiero decirte (te escribe el Leonardo de hoy).</p>
                 </div>
 
-                <!-- CANCIÓN 20 -->
-                <div class="tarjeta-cancion">
+                <div class="tarjeta-cancion" id="tarjeta-cancion20.mp3">
                     <div class="reproductor-header">
                         <button class="btn-reproducir" onclick="switchTrack('cancion20.mp3', 22, 45)">▶</button>
                         <div class="info-pista">
                             <h4 class="nombre-pista-label">Pista Especial 20</h4>
+                            <span class="estado-carga">Cargando...</span>
                         </div>
                     </div>
                     <p class="cuadro-dedicatoria">El Leonardo de ahora te escribe jajajaj y si crj te extraño :(.</p>
                 </div>
 
-                <!-- CANCIÓN 21 -->
-                <div class="tarjeta-cancion">
+                <div class="tarjeta-cancion" id="tarjeta-cancion21.mp3">
                     <div class="reproductor-header">
                         <button class="btn-reproducir" onclick="switchTrack('cancion21.mp3', 14, 50)">▶</button>
                         <div class="info-pista">
                             <h4 class="nombre-pista-label">Pista Especial 21</h4>
+                            <span class="estado-carga">Cargando...</span>
                         </div>
                     </div>
                     <p class="cuadro-dedicatoria">El Leonardo de ahora: No me dejes solo crj...:( (jajajaj se que no depende de mi pero si te vas ufff como ya te amo mucho algo de mi se iria contigo...)</p>
                 </div>
 
-                <!-- CANCIÓN 22 -->
-                <div class="tarjeta-cancion">
+                <div class="tarjeta-cancion" id="tarjeta-cancion22.mp3">
                     <div class="reproductor-header">
                         <button class="btn-reproducir" onclick="switchTrack('cancion22.mp3', 119, 157)">▶</button>
                         <div class="info-pista">
                             <h4 class="nombre-pista-label">Pista Especial 22</h4>
+                            <span class="estado-carga">Cargando...</span>
                         </div>
                     </div>
                     <p class="cuadro-dedicatoria">Esta ya de la sabes siempre te lo dije pero la canción habla por mi mismo, es decir si soy ajajajaj</p>
                 </div>
 
-                <!-- CANCIÓN 23 -->
-                <div class="tarjeta-cancion">
+                <div class="tarjeta-cancion" id="tarjeta-cancion23.mp3">
                     <div class="reproductor-header">
                         <button class="btn-reproducir" onclick="switchTrack('cancion23.mp3', 95, 132)">▶</button>
                         <div class="info-pista">
                             <h4 class="nombre-pista-label">Pista Especial 23</h4>
+                            <span class="estado-carga">Cargando...</span>
                         </div>
                     </div>
                     <p class="cuadro-dedicatoria">Posiblemente sea una de las más tristes que escuches pero es de un corazón desesperado por ti mi amor.....</p>
                 </div>
 
-                <!-- CANCIÓN 24 -->
-                <div class="tarjeta-cancion">
+                <div class="tarjeta-cancion" id="tarjeta-cancion24.mp3">
                     <div class="reproductor-header">
                         <button class="btn-reproducir" onclick="switchTrack('cancion24.mp3', 46, 98)">▶</button>
                         <div class="info-pista">
                             <h4 class="nombre-pista-label">Pista Especial 24</h4>
+                            <span class="estado-carga">Cargando...</span>
                         </div>
                     </div>
                     <p class="cuadro-dedicatoria">Es una forma de decir que zhy si soy celoso jajajaj o que quiero en todo en esta vida contigo</p>
                 </div>
 
-                <!-- CANCIÓN 25 -->
-                <div class="tarjeta-cancion">
+                <div class="tarjeta-cancion" id="tarjeta-cancion25.mp3">
                     <div class="reproductor-header">
                         <button class="btn-reproducir" onclick="switchTrack('cancion25.mp3', 72, 119)">▶</button>
                         <div class="info-pista">
                             <h4 class="nombre-pista-label">Pista Especial 25</h4>
+                            <span class="estado-carga">Cargando...</span>
                         </div>
                     </div>
                     <p class="cuadro-dedicatoria">La canción más migajera que te dedicaré pero si quiero que seas feliz siempre verte feliz será uno de mi objetivos contigo....</p>
                 </div>
 
-                <!-- CANCIÓN 26 -->
-                <div class="tarjeta-cancion">
+                <div class="tarjeta-cancion" id="tarjeta-cancion26.mp3">
                     <div class="reproductor-header">
                         <button class="btn-reproducir" onclick="switchTrack('cancion26.mp3', 108, 150)">▶</button>
                         <div class="info-pista">
                             <h4 class="nombre-pista-label">Pista Especial 26</h4>
+                            <span class="estado-carga">Cargando...</span>
                         </div>
                     </div>
                     <p class="cuadro-dedicatoria">Es tan cursi esta canción pero así me siento contigo, o son la palabras que te diría mi amor y solo diré siempre juntitos mi amor...</p>
                 </div>
 
-                <!-- CANCIÓN 27 -->
-                <div class="tarjeta-cancion">
+                <div class="tarjeta-cancion" id="tarjeta-cancion27.mp3">
                     <div class="reproductor-header">
                         <button class="btn-reproducir" onclick="switchTrack('cancion27.mp3', 45, 110)">▶</button>
                         <div class="info-pista">
                             <h4 class="nombre-pista-label">Pista Especial 27</h4>
+                            <span class="estado-carga">Cargando...</span>
                         </div>
                     </div>
                     <p class="cuadro-dedicatoria">Me sigo enamorando de ti que te puedo decir mi vida (son 11 canciones jajajaj yo quería 10 pero siento que la penúltima canción es quemada y yo quiero dedicarte cosas que tal vez no hayas escuchado ajjajajaj..) y si perdio la guerra del amor contigo.. ahora ya te amo y no puedo vivir sin ti.</p>
@@ -743,14 +683,12 @@ Bienvenida a la parte donde la música va a decir todo aquello que mi corazón t
         // --- LLUVIA AUTOMÁTICA SUTIL ---
         const fondo = document.getElementById('elementos-fondo');
         const simbolos = ['❤️', '✨', '✉️', '💖'];
-        
-        for (let i = 0; i < 15; i++) {
+        for (let i = 0; i < 10; i++) {
             const el = document.createElement('div');
             el.classList.add('elemento-flotante');
             el.innerText = simbolos[Math.floor(Math.random() * simbolos.length)];
             el.style.left = Math.random() * 100 + 'vw';
-            el.style.animationDelay = Math.random() * 10 + 's';
-            el.style.fontSize = Math.random() * 12 + 10 + 'px';
+            el.style.animationDelay = Math.random() * 8 + 's';
             fondo.appendChild(el);
         }
 
@@ -774,48 +712,73 @@ Bienvenida a la parte donde la música va a decir todo aquello que mi corazón t
             }
         }
 
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                const activa = document.querySelector('.ventana-overlay.activa');
-                if (activa) cerrarVentana(activa.id);
-            }
-        });
-
-        // --- REPRODUCTOR DINÁMICO ---
+        // --- REPRODUCTOR OPTIMIZADO PARA MÓVILES (iOS / ANDROID) ---
         const player = document.getElementById('playerGlobal');
         let playingSrc = "";
         let endCheckInterval;
+        let targetEndTime = 0;
 
         function switchTrack(src, start, end) {
+            // Si presionamos el mismo botón que se está reproduciendo, pausamos
             if (playingSrc === src && !player.paused) {
                 player.pause();
                 resetIconButtons();
                 clearInterval(endCheckInterval);
+                ocultarCargas();
                 return;
             }
 
+            // Limpieza previa
             clearInterval(endCheckInterval);
-            playingSrc = src;
-            player.src = src;
-            player.currentTime = start;
-            
-            player.play().then(() => {
-                resetIconButtons();
-                updateActiveButton(src);
-            }).catch(e => console.log("Audio play blocked/error:", e));
+            ocultarCargas();
+            resetIconButtons();
 
-            endCheckInterval = setInterval(() => {
-                if (player.currentTime >= end) {
-                    player.pause();
+            playingSrc = src;
+            targetEndTime = end;
+            
+            // Mostrar texto de "Cargando..." solo en la tarjeta correspondiente
+            const tarjeta = document.getElementById('tarjeta-' + src);
+            let txtCarga = null;
+            if (tarjeta) {
+                txtCarga = tarjeta.querySelector('.estado-carga');
+                if (txtCarga) txtCarga.style.display = "block";
+            }
+
+            // Asignar archivo
+            player.src = src;
+            player.load(); // Fuerza al celular a iniciar la descarga
+
+            // Lógica mobile segura: Esperar a que el archivo se pueda posicionar sin congelarse
+            const alEstarListo = () => {
+                if (txtCarga) txtCarga.style.display = "none";
+                player.currentTime = start;
+                
+                player.play().then(() => {
+                    updateActiveButton(src);
+                    // Chequeo de fin de segmento
+                    endCheckInterval = setInterval(() => {
+                        if (player.currentTime >= targetEndTime) {
+                            player.pause();
+                            resetIconButtons();
+                            clearInterval(endCheckInterval);
+                        }
+                    }, 300);
+                }).catch(err => {
+                    console.log("Error al reproducir: ", err);
                     resetIconButtons();
-                    clearInterval(endCheckInterval);
-                }
-            }, 400);
+                });
+                
+                // Quitar evento para que no se ejecute dos veces
+                player.removeEventListener('canplaythrough', alEstarListo);
+            };
+
+            player.addEventListener('canplaythrough', alEstarListo);
         }
 
         function stopGlobalAudio() {
             player.pause();
             resetIconButtons();
+            ocultarCargas();
             clearInterval(endCheckInterval);
         }
 
@@ -823,10 +786,14 @@ Bienvenida a la parte donde la música va a decir todo aquello que mi corazón t
             document.querySelectorAll('.btn-reproducir').forEach(btn => btn.innerText = "▶");
         }
 
+        function ocultarCargas() {
+            document.querySelectorAll('.estado-carga').forEach(lbl => lbl.style.display = "none");
+        }
+
         function updateActiveButton(src) {
             document.querySelectorAll('.tarjeta-cancion').forEach(tarjeta => {
                 const btn = tarjeta.querySelector('.btn-reproducir');
-                if (btn.getAttribute('onclick').includes(src)) {
+                if (btn && btn.getAttribute('onclick').includes(src)) {
                     btn.innerText = "⏸";
                 }
             });
