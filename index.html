@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestra Historia - Una Carta Sin Fecha</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --color-amor-profundo: #0f0204;
+            --color-terciopelo: #2d0b11;
+            --color-oro-sutil: #dfba6b;
+            --color-rosa-romance: #fff0f3;
+            --color-texto: #2c1a1c;
+            --color-guindo: #5c141d;
+            --color-rojo-pasion: #af2235;
+        }
+
+        body {
+            background: radial-gradient(circle at center, var(--color-terciopelo) 0%, var(--color-amor-profundo) 100%);
+            font-family: 'Playfair Display', serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 40px 20px;
+            box-sizing: border-box;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* --- DETALLES FLOTANTES --- */
+        .corazones-fondo {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .corazon-flotante {
+            position: absolute;
+            bottom: -20px;
+            color: rgba(175, 34, 53, 0.2);
+            font-size: 14px;
+            animation: flotarHaciaArriba 8s linear infinite;
+        }
+
+        @keyframes flotarHaciaArriba {
+            0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% { transform: translateY(-105vh) translateX(50px) rotate(360deg); opacity: 0; }
+        }
+
+        /* --- SOBRE INTERACTIVO --- */
+        .contenedor-sobre {
+            perspective: 1000px;
+            margin-bottom: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 550px;
+            z-index: 2;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .frase-sobre-superior {
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            text-align: center;
+            text-shadow: 0 0 10px rgba(234, 190, 197, 0.6);
+            text-transform: uppercase;
+            line-height: 1.5;
+            padding: 0 10px;
+        }
+
+        .sobre {
+            position: relative;
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, #4a0d14 0%, #2e0509 100%);
+            border-radius: 0 0 12px 12px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.8), inset 0 0 20px rgba(0,0,0,0.4);
+            cursor: pointer;
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .sobre:hover {
+            transform: translateY(-10px) scale(1.02);
+        }
+
+        .sobre::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 0; height: 0;
+            border-left: 275px solid transparent;
+            border-right: 275px solid transparent;
+            border-bottom: 165px solid #5c141d;
+            border-radius: 0 0 12px 12px;
+            z-index: 3;
+            box-sizing: border-box;
+        }
+
+        @media (max-width: 550px) {
+            .sobre::before {
+                border-left-width: calc(50vw - 20px);
+                border-right-width: calc(50vw - 20px);
+            }
+        }
+
+        .solapa {
+            position: absolute;
+            top: 0; left: 0; width: 0; height: 0;
+            border-left: 275px solid transparent;
+            border-right: 275px solid transparent;
+            border-top: 150px solid #250205;
+            transform-origin: top;
+            transition: transform 0.4s ease 0.1s, z-index 0.2s ease 0.1s;
+            z-index: 4;
+        }
+
+        @media (max-width: 550px) {
+            .solapa {
+                border-left-width: calc(50vw - 20px);
+                border-right-width: calc(50vw - 20px);
+            }
+        }
+
+        .sobre.abierto .solapa {
+            transform: rotateX(180deg);
+            z-index: 1;
+            transition: transform 0.4s ease, z-index 0.2s ease 0.2s;
+        }
+
+        .sello-corazon {
+            position: absolute;
+            z-index: 5;
+            font-size: 45px;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
+            animation: latidoSello 1.2s infinite;
+            transition: opacity 0.3s ease;
+            bottom: 110px;
+        }
+
+        @keyframes latidoSello {
+            0% { transform: scale(1); }
+            20% { transform: scale(1.15); }
+            40% { transform: scale(1); }
+            60% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .sobre.abierto .sello-corazon {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .texto-sobre-interior {
+            position: absolute;
+            bottom: 25px;
+            width: 90%;
+            left: 5%;
+            text-align: center;
+            color: var(--color-rosa-romance);
+            z-index: 4;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+            font-family: 'Great Vibes', cursive;
+            font-size: 22px;
+            line-height: 1.4;
+            padding: 0 10px;
+            box-sizing: border-box;
+        }
+
+        /* --- TARJETA PRINCIPAL --- */
+        .tarjeta-carta {
+            background-color: #fffefb;
+            background-image: radial-gradient(rgba(240, 200, 200, 0.15) 1.5px, transparent 0);
+            background-size: 30px 30px;
+            padding: 55px 45px;
+            border-radius: 24px;
+            box-shadow: 0px 40px 90px rgba(0, 0, 0, 0.9), inset 0 0 40px rgba(234, 190, 197, 0.15);
+            max-width: 680px;
+            width: 100%;
+            border: 2px solid rgba(223, 186, 107, 0.45);
+            outline: 12px solid rgba(255, 253, 250, 0.08);
+            box-sizing: border-box;
+            text-align: center;
+            display: none;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.9s ease, transform 0.9s ease;
+            z-index: 1;
+            position: relative;
+        }
+
+        @media (max-width: 500px) {
+            .tarjeta-carta { padding: 35px 20px; }
+        }
+
+        .tarjeta-carta.visible {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .decoracion-esquina {
+            position: absolute;
+            font-size: 24px;
+            filter: drop-shadow(0 2px 4px rgba(175, 34, 53, 0.15));
+        }
+        .esquina-sup-izq { top: 20px; left: 25px; }
+        .esquina-sup-der { top: 20px; right: 25px; }
+        .esquina-inf-izq { bottom: 20px; left: 25px; }
+        .esquina-inf-der { bottom: 20px; right: 25px; }
+
+        .corazon-principal {
+            color: var(--color-rojo-pasion);
+            font-size: 40px;
+            display: inline-block;
+            margin-bottom: 5px;
+            filter: drop-shadow(0 4px 10px rgba(175, 34, 53, 0.3));
+        }
+
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            color: #4a0d14;
+            font-size: 52px;
+            margin: 0 0 5px 0;
+            font-weight: 400;
+        }
+
+        .encabezado-dia {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--color-rojo-pasion);
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin: 10px 0 30px 0;
+            padding: 5px 15px;
+            display: inline-block;
+            border-bottom: 2px solid var(--color-oro-sutil);
+        }
+
+        .bloque-texto {
+            color: var(--color-texto);
+            font-size: 17.5px;
+            line-height: 1.9;
+            white-space: pre-line;
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .subtitulo-fecha {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--color-guindo);
+            margin-top: 40px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px dashed rgba(175, 34, 53, 0.2);
+            padding-bottom: 8px;
+            text-align: left;
+        }
+
+        .bloque-destacado {
+            color: #4f3b3d;
+            font-size: 16.5px;
+            line-height: 1.8;
+            white-space: pre-line;
+            background-color: var(--color-rosa-romance);
+            padding: 26px;
+            border-radius: 16px;
+            border-left: 4px solid var(--color-rojo-pasion);
+            margin-bottom: 35px;
+            font-style: italic;
+            box-shadow: 0 6px 20px rgba(234, 190, 197, 0.2);
+            text-align: left;
+        }
+
+        /* --- SECCIÓN REPRODUCTOR DE MÚSICA --- */
+        .seccion-playlist {
+            margin-top: 50px;
+            text-align: left;
+        }
+
+        .titulo-playlist {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+            color: #ffffff;
+            background: linear-gradient(135deg, #5c141d 0%, #250205 100%);
+            padding: 15px 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .titulo-playlist span {
+            font-size: 13px;
+            font-weight: 400;
+            opacity: 0.8;
+            letter-spacing: 1px;
+        }
+
+        .lista-canciones {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .tarjeta-cancion {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .tarjeta-cancion:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(15,2,4,0.08);
+        }
+
+        .reproductor-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 12px;
+        }
+
+        .btn-reproducir {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background-color: var(--color-guindo);
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(92, 20, 29, 0.3);
+            flex-shrink: 0;
+        }
+
+        .btn-reproducir:hover {
+            background-color: var(--color-rojo-pasion);
+            transform: scale(1.05);
+        }
+
+        .info-pista {
+            flex-grow: 1;
+        }
+
+        .nombre-cancion {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            color: var(--color-texto);
+            margin: 0;
+        }
+
+        .tiempo-destacado {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            color: var(--color-rojo-pasion);
+            font-weight: 700;
+            background: #ffebeb;
+            padding: 2px 8px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-top: 4px;
+        }
+
+        .nota-leonardo {
+            background-color: #fcf8f2;
+            border-left: 3px solid var(--color-oro-sutil);
+            padding: 12px 15px;
+            border-radius: 0 12px 12px 0;
+            font-size: 14.5px;
+            line-height: 1.6;
+            color: #554143;
+            margin: 0;
+            font-style: italic;
+        }
+
+        .firma {
+            font-family: 'Great Vibes', cursive;
+            margin-top: 50px;
+            font-size: 45px;
+            color: #4a0d14;
+            text-align: right;
+            padding-right: 10px;
+        }
+
+        /* AUDIO ELEMENT */
+        audio { display: none; }
+    </style>
+</head>
+<body>
+
+    <div class="corazones-fondo" id="corazones-fondo"></div>
+
+    <div class="contenedor-sobre" id="contenedor-sobre">
+        <!-- NUEVO TÍTULO SUPERIOR -->
+        <div class="frase-sobre-superior">EL DÍA EN QUE LOS LIRIOS SE VOLVIERON MI FLOR FAVORITA</div>
+        <div class="sobre" id="sobre" onclick="abrirCarta()">
+            <div class="solapa"></div>
+            <div class="sello-corazon">🪷</div>
+            <!-- NUEVA DEDICATORIA -->
+            <div class="texto-sobre-interior">Para la mujer que hizo que cada lirio me recordara a la persona más hermosa que he conocido.</div>
+        </div>
+    </div>
+
+    <div class="tarjeta-carta" id="tarjeta-carta">
+        <span class="decoracion-esquina esquina-sup-izq">✨</span>
+        <span class="decoracion-esquina esquina-sup-der">✨</span>
+        <span class="decoracion-esquina esquina-inf-izq">❤️</span>
+        <span class="decoracion-esquina esquina-inf-der">❤️</span>
+
+        <span class="corazon-principal">❤️</span>
+        <h1>Para Wendy</h1>
+        
+        <div class="encabezado-dia">UNA CARTA SIN FECHA</div>
+        
+        <div class="bloque-destacado">Esta carta no tiene una fecha en específico.
+Porque no habla de un solo día, sino de todo ese tiempo entre una salida y otra. De esos días en los que no nos veíamos, pero en los que, sin darme cuenta, tú ya ocupabas gran parte de mis pensamientos.</div>
+
+        <div class="bloque-texto">La primera vez que nos vimos me fui con mucha vergüenza por lo que pasó. No lo voy a negar, todavía me da pena recordarlo. Sentía nervios, miedo y muchísima vergüenza. Pero, curiosamente, también me fui con una tranquilidad que hacía mucho tiempo no sentía.
+
+Y creo que ahí empezó todo.
+Porque contigo nunca sentí que tenía que aparentar ser alguien más. Me sentía tranquilo, cómodo... y tú sabes cuánto me gusta esa tranquilidad. Creo que en eso siempre nos parecemos.
+
+Después de despedirnos hubo muchos días en los que me preguntaba: <em>"¿Qué me está pasando con Wendy?"</em> Porque yo mismo me negaba a aceptar que ya estaba sintiendo algo por ti. Me repetía una y otra vez: <em>"No seas intenso, Leonardo"</em>, <em>"La acabas de conocer"</em>, <em>"Seguro solo es la emoción del momento"</em>. Quería convencerme de que solo me parecías muy bonita.
+Pero cada vez que volvía a verte, esa idea se iba cayendo un poquito más.</div>
+
+        <div class="subtitulo-fecha">✨ El Accidente del Frappé y los Detalles Pequeños</div>
+        <div class="bloque-texto">Todavía me acuerdo del día en que se me cayó el frappé encima. JAJAJAJA. Qué vergüenza... 
+Pero lo primero que hiciste fue ayudarme. Ni siquiera dudaste. Antes de cualquier otra cosa te preocupaste por mí, y ese detalle, aunque para ti seguramente fue algo pequeño, para mí significó muchísimo.
+
+Y ahí entendí algo. No fueron los grandes momentos los que hicieron que me enamorara. Fueron esos pequeños detalles. Tu sonrisa. Tu manera de escuchar. La forma en la que me tratabas. Cómo te preocupabas por mí. Cómo me hacías sentir importante sin siquiera darte cuenta.
+
+Así fue como me enamoré de ti. Poquito a poquito. Sin prisas. Sin forzarlo. Y creo que ha sido la forma más honesta en la que me he enamorado en toda mi vida. Porque tú nunca intentaste impresionarme. Nunca quisiste aparentar ser alguien que no eras. Nunca sentí que tenías que demostrarme algo. Simplemente eras tú. Y eso fue más que suficiente.</div>
+
+        <div class="subtitulo-fecha">✨ Incondicional y a Tu Tiempo</div>
+        <div class="bloque-texto">Conecté contigo de una forma muy profunda. Tanto, que cada semana que nos veíamos me hacía la misma pregunta: <em>"¿Qué tanto la quiero?"</em> Al principio era: <em>"Me cae muy bien."</em> Después: <em>"Mierda... creo que ya la estoy empezando a querer."</em> Y un día, sin darme cuenta, ya no pude seguir engañándome: <strong>"La amo."</strong>
+
+No sabes cuántas ganas tenía de que ya fueras mi pareja. De poder decir con orgullo: <em>"Sí... ella es mi amor."</em> Y lo más curioso es que, cuando hablábamos de cómo era la mujer que siempre había imaginado para mi vida, el resultado siempre terminaba siendo tú. ¡No mames... hasta yo me sorprendía! JAJAJAJA.
+
+Hubo momentos en los que me decías que todavía no sabías qué querías conmigo o que no te sentías lista. Y sí... no te voy a mentir, eso me ponía un poquito triste. No porque sintiera que me debías algo. Jamás. Todo lo que hice por ti siempre nació de manera completamente incondicional. Nunca esperando algo a cambio. Lo hacía porque quería que supieras que había alguien que te quería muchísimo, que te admiraba profundamente y que era inmensamente feliz cuando te veía sonreír. Porque, de verdad... no sabes qué tan feliz soy cuando tú eres feliz.
+
+Aun así, siempre respeté tus tiempos. Porque antes de querer que fueras mi pareja, quería que te sintieras tranquila. Te respeto demasiado. Respeto tu historia. Respeto tus miedos. Y admiro profundamente la mujer tan increíble que eres. Nunca quise correr. Porque tú misma me enseñaste que todo lo bonito necesita tiempo, paciencia y esfuerzo. Y decidí creer en eso.</div>
+
+        <div class="subtitulo-fecha">✨ Transformación Total</div>
+        <div class="bloque-texto">Mientras tanto... yo seguía enamorándome un poquito más de ti. Ya esperaba con emoción nuestros encuentros. Esperaba tus besitos en el cachete como niño chiquito. JAJAJA. Esperaba poder verte aunque fuera una sola vez a la semana. Y con eso ya era feliz.
+
+Fue ahí cuando entendí algo que hasta el día de hoy me sorprende: nunca me había visto haciendo todas estas cosas por alguien. Las cartas. Las flores. Las canciones. Los pequeños detalles. Todo eso nació únicamente porque eras tú. Porque jamás imaginé querer a alguien de esta manera. Y creo que nunca voy a volver a dedicar esas canciones. No porque no existan otras bonitas. Sino porque esas ya tienen dueña. Llevan tu nombre.
+
+Y cuando planeé regalarte los lirios seguía sintiendo nervios. Pero había algo mucho más fuerte que el miedo: las ganas de verte sonreír. Porque, al final del día, entendí que el amor no se demuestra con cosas enormes. Se demuestra con pequeños detalles hechos con el corazón. Y si una sonrisa tuya era el resultado... entonces todo había valido completamente la pena. ❤️</div>
+
+        <div class="subtitulo-fecha">✨ UNA CARTA ESCRITA CON EXTRAÑO</div>
+        <div class="bloque-texto" style="font-style: italic; background-color: #fdfaf6; padding: 20px; border-radius: 12px;">Ando y bueno... Si estás leyendo esta parte, significa que esta sí la escribí hace muy poquito. Es la más reciente de todas. Y creo que por eso también es la más sincera.
+
+La verdad... Te extraño muchísimo. Extraño volver a verte, abrazarte y sentir esa tranquilidad que solo encontraba cuando estaba contigo. Es raro cómo funciona mi cabeza, pero cuando te abrazaba siempre hacía lo mismo: sin darme cuenta respiraba profundo, como si quisiera guardar tu perfume y ese momento para recordarlo después. Y ahí sabía que eras tú.
+
+Extraño tu carita. Tu sonrisa. Tus ojitos. Tu voz. Extraño que me cuentes cómo estuvo tu día, mandarte un mensaje y saber de ti. Extraño hasta las cosas más simples, porque al final fueron esas las que más feliz me hacían.</div>
+
+        <div class="bloque-texto">Quiero que sepas algo. Estas cartas ya no se tratan de pedir perdón. Tampoco buscan convencerte de nada. Las escribí porque ya las tenía en mi corazón desde hace tiempo y porque quería que supieras cuánto te amo, cuánto te extraño y cuánto significaste para mí. Son, simplemente, la manera más honesta que encontré de decirte todo lo que nunca quería dejar sin expresar.
+
+Nunca pensé enamorarme así. De hecho, si soy completamente sincero... ni siquiera quería enamorarme. Después de tanto tiempo solo, ya me había acostumbrado a esa vida. Pensaba que estaba bien así. Y entonces llegaste tú... y cambiaste por completo todo lo que yo creía saber sobre mí.
+
+Ahora me cuesta imaginar un futuro donde no estés. Porque cuando pensaba en mis planes, inevitablemente aparecía tú. Quería que formaras parte de mi presente. De mi futuro. Y seguir creando recuerdos para que, algún día, también formaras parte de ese pasado bonito al que siempre quisiera volver.
+
+No sabes la suerte que siento de haberte conocido. Gracias por cada abrazo. Por cada beso en el cachete. Por cada conversación. Por cada risa. Por cada canción. Por cada detalle. Y, sobre todo... Gracias por quererme. Porque hiciste sentir querido a un hombre que ya se había acostumbrado a caminar solo.
+
+Te amo muchísimo. Y si algo quiero que recuerdes después de leer todas estas cartas, es que cada palabra nació desde el lugar más sincero de mi corazón.
+
+Bueno... ya hablé demasiado. JAJAJA. Ahora viene una parte que también me hacía mucha ilusión. Te preparé unas canciones. Algunas son alegres, otras melancólicas, otras hablan de corazones rotos... pero todas tienen una frase que, de alguna manera, me recuerda a ti o a lo que vivimos. Porque incluso las canciones más tristes, a veces esconden las declaraciones de amor más bonitas.
+
+Así que... Bienvenida a la parte donde la música va a decir todo aquello que mi corazón todavía no alcanza a explicar. ❤️</div>
+
+        <!-- SECCIÓN DE REPRODUCTORES MUSICALES -->
+        <div class="seccion-playlist">
+            <div class="titulo-playlist">
+                <span>REPRODUCTOR ESPECIAL</span>
+                <span>11 TRACKS • MAILOV 🪷</span>
+            </div>
+            
+            <div class="lista-canciones">
+                <!-- CANCIÓN 17 -->
+                <div class="tarjeta-cancion">
+                    <div class="reproductor-header">
+                        <button class="btn-reproducir" onclick="reproducirPista('cancion17.mp3', 92, 110)">▶</button>
+                        <div class="info-pista">
+                            <h4 class="nombre-cancion">Canción 17</h4>
+                            <span class="tiempo-destacado">Minutos 1:32 - 1:50</span>
+                        </div>
+                    </div>
+                    <p class="nota-leonardo">Solo puedo decir que no importa las horas que pasen, pero siempre me va a encantar ver tus hermosos ojos. Vamos a decirlo así, disociarme viendo tus ojos.</p>
+                </div>
+
+                <!-- CANCIÓN 18 -->
+                <div class="tarjeta-cancion">
+                    <div class="reproductor-header">
+                        <button class="btn-reproducir" onclick="reproducirPista('cancion18.mp3', 36, 62)">▶</button>
+                        <div class="info-pista">
+                            <h4 class="nombre-cancion">Canción 18</h4>
+                            <span class="tiempo-destacado">Minutos 0:36 - 1:02</span>
+                        </div>
+                    </div>
+                    <p class="nota-leonardo">Cuando te veo en la semana, es una forma de sentir que como que me llenas las pilas de nuevo, por decirlo así. Como que estoy al 100, es como que eres mi cargador emocional. Estoy en una semana tan jodida, te veo y me recargo ya listo para la siguiente semana con ganas de seguir viviendo y de verte.</p>
+                </div>
+
+                <!-- CANCIÓN 19 -->
+                <div class="tarjeta-cancion">
+                    <div class="reproductor-header">
+                        <button class="btn-reproducir" onclick="reproducirPista('cancion19.mp3', 76, 151)">▶</button>
+                        <div class="info-pista">
+                            <h4 class="nombre-cancion">Canción 19</h4>
+                            <span class="tiempo-destacado">Minutos 1:16 - 2:31</span>
+                        </div>
+                    </div>
+                    <p class="nota-leonardo">Ya la canción dice todo lo que quiero decirte (te escribe el Leonardo de hoy).</p>
+                </div>
+
+                <!-- CANCIÓN 20 -->
+                <div class="tarjeta-cancion">
+                    <div class="reproductor-header">
+                        <button class="btn-reproducir" onclick="reproducirPista('cancion20.mp3', 22, 45)">▶</button>
+                        <div class="info-pista">
+                            <h4 class="nombre-cancion">Canción 20</h4>
+                            <span class="tiempo-destacado">Minutos 0:22 - 0:45</span>
+                        </div>
+                    </div>
+                    <p class="nota-leonardo">El Leonardo de ahora te escribe jajajaj y si crj te extraño :(.</p>
+                </div>
+
+                <!-- CANCIÓN 21 -->
+                <div class="tarjeta-cancion">
+                    <div class="reproductor-header">
+                        <button class="btn-reproducir" onclick="reproducirPista('cancion21.mp3', 14, 50)">▶</button>
+                        <div class="info-pista">
+                            <h4 class="nombre-cancion">Canción 21</h4>
+                            <span class="tiempo-destacado">Minutos 0:14 - 0:50</span>
+                        </div>
+                    </div>
+                    <p class="nota-leonardo">El Leonardo de ahora: No me dejes solo crj...:( (jajajaj se que no depende de mi pero si te vas ufff como ya te amo mucho algo de mi se iria contigo...)</p>
+                </div>
+
+                <!-- CANCIÓN 22 -->
+                <div class="tarjeta-cancion">
+                    <div class="reproductor-header">
+                        <button class="btn-reproducir" onclick="reproducirPista('cancion22.mp3', 119, 157)">▶</button>
+                        <div class="info-pista">
+                            <h4 class="nombre-cancion">Canción 22</h4>
+                            <span class="tiempo-destacado">Minutos 1:59 - 2:37</span>
+                        </div>
+                    </div>
+                    <p class="nota-leonardo">Esta ya de la sabes siempre te lo dije pero la cancion habla por mi mismo, es decir si soy ajajajaj</p>
+                </div>
+
+                <!-- CANCIÓN 23 -->
+                <div class="tarjeta-cancion">
+                    <div class="reproductor-header">
+                        <button class="btn-reproducir" onclick="reproducirPista('cancion23.mp3', 95, 132)">▶</button>
+                        <div class="info-pista">
+                            <h4 class="nombre-cancion">Canción 23</h4>
+                            <span class="tiempo-destacado">Minutos 1:35 - 2:12</span>
+                        </div>
+                    </div>
+                    <p class="nota-leonardo">Posiblemente sea una de las mas tristes que escuches pero es de un corazon desesperado por ti mi amor.....</p>
+                </div>
+
+                <!-- CANCIÓN 24 -->
+                <div class="tarjeta-cancion">
+                    <div class="reproductor-header">
+                        <button class="btn-reproducir" onclick="reproducirPista('cancion24.mp3', 46, 98)">▶</button>
+                        <div class="info-pista">
+                            <h4 class="nombre-cancion">Canción 24</h4>
+                            <span class="tiempo-destacado">Minutos 0:46 - 1:38</span>
+                        </div>
+                    </div>
+                    <p class="nota-leonardo">Es una forma de decir que zhy si soy celoso jajajaj o que quiero en todo en esta vida contigo</p>
+                </div>
+
+                <!-- CANCIÓN 25 -->
+                <div class="tarjeta-cancion">
+                    <div class="reproductor-header">
+                        <button class="btn-reproducir" onclick="reproducirPista('cancion25.mp3', 72, 119)">▶</button>
+                        <div class="info-pista">
+                            <h4 class="nombre-cancion">Canción 25</h4>
+                            <span class="tiempo-destacado">Minutos 1:12 - 1:59</span>
+                        </div>
+                    </div>
+                    <p class="nota-leonardo">La cancion mas migajera que te dedicare pero si quiero que seas feliz siempre verte feliz sera uno de mi objetivos contigo....</p>
+                </div>
+
+                <!-- CANCIÓN 26 -->
+                <div class="tarjeta-cancion">
+                    <div class="reproductor-header">
+                        <button class="btn-reproducir" onclick="reproducirPista('cancion26.mp3', 108, 150)">▶</button>
+                        <div class="info-pista">
+                            <h4 class="nombre-cancion">Canción 26</h4>
+                            <span class="tiempo-destacado">Minutos 1:48 - 2:30</span>
+                        </div>
+                    </div>
+                    <p class="nota-leonardo">Es tan cursi esta cancion (pero espero no la hayas escuchado peor tengo mis sospechas de que si ajajjaja) pero asi em siento contigo, o son la palabras que te diria mi amor y solo dire siempre juntitos mi amor...</p>
+                </div>
+
+                <!-- CANCIÓN 27 -->
+                <div class="tarjeta-cancion">
+                    <div class="reproductor-header">
+                        <button class="btn-reproducir" onclick="reproducirPista('cancion27.mp3', 45, 110)">▶</button>
+                        <div class="info-pista">
+                            <h4 class="nombre-cancion">Canción 27</h4>
+                            <span class="tiempo-destacado">Minutos 0:45 - 1:50</span>
+                        </div>
+                    </div>
+                    <p class="nota-leonardo">Me sigo enamorando de ti que te puedo decir mi vida (son 11 canciones jajajaj yo queria 10 pero siento que la penultima cancion es quemada y yo quiero dedicarte cosas que tal vez no hayas escuchado ajjajajaj..) y si perdio la guerra del amor contigo.. ahora ya te amo y no puedo vivir sin ti.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bloque-texto" style="margin-top: 40px;">Y gracias mi Brujita por estar en mi vida y por amarme, me esfuerzo en todo por hacerte feliz y decirte que te amo mucho y que si con esto no queda claro lo mucho que te amo pos ya no se ajjajaja no mentira lo hago solo para que sepas lo mucho que te amo y que tanto me encantas y que en cada cancion que escucho estas tu mi vida siempre.....</div>
+
+        <div class="firma">Con todo mi amor, Leonardo</div>
+    </div>
+
+    <!-- REPRODUCTOR GENERAL DINÁMICO -->
+    <audio id="globalPlayer" preload="auto"></audio>
+
+    <script>
+        // Lluvia de corazones automática
+        const fondo = document.getElementById('corazones-fondo');
+        const simbolos = ['❤️', '🪷', '✨', '💖', '🌸'];
+        
+        for (let i = 0; i < 25; i++) {
+            const elemento = document.createElement('div');
+            elemento.classList.add('corazon-flotante');
+            elemento.innerText = simbolos[Math.floor(Math.random() * simbolos.length)];
+            elemento.style.left = Math.random() * 100 + 'vw';
+            elemento.style.animationDelay = Math.random() * 6 + 's';
+            elemento.style.fontSize = Math.random() * 12 + 12 + 'px';
+            fondo.appendChild(elemento);
+        }
+
+        // Abrir Carta
+        function abrirCarta() {
+            document.getElementById('sobre').classList.add('abierto');
+            setTimeout(() => {
+                document.getElementById('contenedor-sobre').style.display = 'none';
+                document.getElementById('tarjeta-carta').classList.add('visible');
+            }, 800);
+        }
+
+        // Lógica de interacción para las 11 pistas independientes
+        const globalPlayer = document.getElementById('globalPlayer');
+        let currentSrc = "";
+        let intervalCheck;
+
+        function reproducirPista(src, startSec, endSec) {
+            // Si le da click a la misma canción que ya está sonando, la pausa
+            if (currentSrc === src && !globalPlayer.paused) {
+                globalPlayer.pause();
+                actualizarIconosBotones(null);
+                clearInterval(intervalCheck);
+                return;
+            }
+
+            clearInterval(intervalCheck);
+            currentSrc = src;
+            globalPlayer.src = src;
+            globalPlayer.currentTime = startSec;
+            
+            globalPlayer.play().then(() => {
+                actualizarIconosBotones(src);
+            }).catch(err => console.log("Error al reproducir pista de audio:", err));
+
+            // Control de parada según la duración específica dada por el usuario
+            intervalCheck = setInterval(() => {
+                if (globalPlayer.currentTime >= endSec) {
+                    globalPlayer.pause();
+                    actualizarIconosBotones(null);
+                    clearInterval(intervalCheck);
+                }
+            }, 500);
+        }
+
+        function actualizarIconosBotones(activeSrc) {
+            const tarjetas = document.querySelectorAll('.tarjeta-cancion');
+            tarjetas.forEach(tarjeta => {
+                const btn = tarjeta.querySelector('.btn-reproducir');
+                // Extrae el atributo onclick para comparar el nombre del archivo
+                const clickAttr = btn.getAttribute('onclick');
+                if (activeSrc && clickAttr.includes(activeSrc)) {
+                    btn.innerText = "⏸";
+                } else {
+                    btn.innerText = "▶";
+                }
+            });
+        }
+    </script>
+</body>
+</html>
