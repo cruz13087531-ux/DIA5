@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diario de Brujita - Confesiones</title>
+    <title>Para mi Brujita</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap');
 
@@ -73,16 +73,16 @@
         }
 
         .heart-icon-header {
-            color: var(--color-rojo-pasion);
-            font-size: 38px;
+            color: var(--color-oro-sutil);
+            font-size: 32px;
             margin-bottom: 5px;
-            filter: drop-shadow(0 4px 10px rgba(175, 34, 53, 0.4));
+            filter: drop-shadow(0 4px 10px rgba(223, 186, 107, 0.2));
         }
 
         h1.main-title {
             font-family: 'Great Vibes', cursive;
             color: #ffffff;
-            font-size: 56px;
+            font-size: 62px;
             font-weight: 400;
             margin: 0 0 5px 0;
             text-shadow: 0 4px 12px rgba(0,0,0,0.6);
@@ -234,7 +234,7 @@
 
         .bloque-texto {
             color: var(--color-texto);
-            font-size: 17px;
+            font-size: 16.5px;
             line-height: 1.85;
             white-space: pre-line;
             margin-bottom: 20px;
@@ -377,9 +377,10 @@
 
     <div class="corazones-fondo" id="elementos-fondo"></div>
 
+    <!-- PANTALLA DE INICIO -->
     <div class="contenedor-inicio">
         <div class="heart-icon-header">✨</div>
-        <h1 class="main-title">Diario de Brujita</h1>
+        <h1 class="main-title">Para mi Brujita</h1>
         <div class="sub-main-title">Confesiones de un fiel enamorado a su Brujita</div>
         
         <div class="menu-ventanas">
@@ -389,8 +390,10 @@
         </div>
     </div>
 
+    <!-- REPRODUCTOR GENERAL -->
     <audio id="playerGlobal" preload="auto"></audio>
 
+    <!-- VENTANA 1: UNA CARTA SIN FECHA -->
     <div class="ventana-overlay" id="ventanaCartaSinFecha" onclick="cerrarVentanaClickFuera(event, 'ventanaCartaSinFecha')">
         <div class="tarjeta-ventana">
             <button class="btn-cerrar" onclick="cerrarVentana('ventanaCartaSinFecha')">&times;</button>
@@ -402,25 +405,121 @@
                 <h2 class="ventana-title">Una carta sin fecha</h2>
             </div>
 
-            <div class="parrafo-destacado">Esta carta no tiene una fecha en específico. Porque no habla de un solo día, sino de todo ese tiempo entre una salida y otra. De esos días en los que no nos veíamos, pero en los que, sin darme cuenta, tú ya ocupabas gran parte de mis pensamientos.</div>
+            <div class="bloque-texto">Esta carta no tiene una fecha en específico.
+Porque no habla de un solo día, sino de todo ese tiempo entre una salida y otra. De esos días en los que no nos veíamos, pero en los que, sin darme cuenta, tú ya ocupabas gran parte de mis pensamientos.
 
-            <div class="bloque-texto">La primera vez que nos vimos me fui con mucha vergüenza por lo que pasó. No lo voy a negar, todavía me da pena recordarlo. Sentía nervios, miedo y muchísima vergüenza. Pero, curiosamente, también me fui con una tranquilidad que hacía mucho tiempo no sentía.
+La primera vez que nos vimos me fui con mucha vergüenza por lo que pasó. No lo voy a negar, todavía me da pena recordarlo. Sentía nervios, miedo y muchísima vergüenza. Pero, curiosamente, también me fui con una tranquilidad que hacía mucho tiempo no sentía.
 
-Ando y contigo nunca sentí que tenía que aparentar ser alguien más. Me sentía tranquilo, cómodo... y tú sabes cuánto me gusta esa tranquilidad. Creo que en eso siempre nos parecemos.
+Y creo que ahí empezó todo.
+Porque contigo nunca sentí que tenía que aparentar ser alguien más. Me sentía tranquilo, cómodo... y tú sabes cuánto me gusta esa tranquilidad. Creo que en eso siempre nos parecemos.
 
-Después de despedirnos hubo muchos días en los que me preguntaba: <em>"¿Qué me está pasando con Wendy?"</em> Porque yo mismo me negaba a aceptar que ya estaba sintiendo algo por ti. Me repetía una y otra vez: <em>"No seas intenso, Leonardo"</em>, <em>"La acabas de conocer"</em>, <em>"Seguro solo es la emoción del momento"</em>. Quería convencerme de que solo me parecías muy bonita.
+Después de despedirnos hubo muchos días en los que me preguntaba:
+"¿Qué me está pasando con Wendy?"
+Porque yo mismo me negaba a aceptar que ya estaba sintiendo algo por ti. Me repetía una y otra vez:
+"No seas intenso, Leonardo."
+"La acabas de conocer."
+"Seguro solo es la emoción del momento."
+Quería convencerme de que solo me parecías muy bonita.
 Pero cada vez que volvía a verte, esa idea se iba cayendo un poquito más.
 
-Todavía me acuerdo del día en que se me cayó el frappé encima. JAJAJAJA. Qué vergüenza... Pero lo primero que hiciste fue ayudarme. Ni siquiera dudaste. Antes de cualquier otra cosa te preocupaste por mí, y ese detalle, aunque para ti seguramente fue algo pequeño, para mí significó muchísimo.
+Todavía me acuerdo del día en que se me cayó el frappé encima. JAJAJAJA.
+Qué vergüenza...
+Pero lo primero que hiciste fue ayudarme. Ni siquiera dudaste. Antes de cualquier otra cosa te preocupaste por mí, y ese detalle, aunque para ti seguramente fue algo pequeño, para mí significó muchísimo.
 
-Y ahí entendí algo. No fueron los grandes momentos los que hicieron que me enamorara. Fueron esos pequeños detalles. Tu sonrisa. Tu manera de escuchar. La forma en la que me tratabas. Cómo te preocupabas por mí. Cómo me hacías sentir importante sin siquiera darte cuenta.
+Y ahí entendí algo.
+No fueron los grandes momentos los que hicieron que me enamorara.
+Fueron esos pequeños detalles.
+Tu sonrisa.
+Tu manera de escuchar.
+La forma en la que me tratabas.
+Cómo te preocupabas por mí.
+Cómo me hacías sentir importante sin siquiera darte cuenta.
 
-Así fue como me enamoré de ti. Poquito a poquito. Sin prisas. Sin forzarlo. Y creo que ha sido la forma más honesta en la que me he enamorado en toda mi vida. Porque tú nunca intentaste impresionarme. Nunca quisiste aparentar ser alguien que no eras. Nunca sentí que tienes que demostrarme algo. Simplemente eras tú. Y eso fue más que suficiente.</div>
+Así fue como me enamoré de ti.
+Poquito a poquito.
+Sin prisas.
+Sin forzarlo.
+Y creo que ha sido la forma más honesta en la que me he enamorado en toda mi vida.
+Porque tú nunca intentaste impresionarme.
+Nunca quisiste aparentar ser alguien que no eras.
+Nunca sentí que tenías que demostrarme algo.
+Simplemente eras tú.
+Y eso fue más que suficiente.
+
+Conecté contigo de una forma muy profunda.
+Tanto, que cada semana que nos veíamos me hacía la misma pregunta:
+"¿Qué tanto la quiero?"
+Al principio era:
+"Me cae muy bien."
+Después:
+"Mierda... creo que ya la estoy empezando a querer."
+Y un día, sin darme cuenta, ya no pude seguir engañándome.
+"La amo."
+
+No sabes cuántas ganas tenía de que ya fueras mi pareja.
+De poder decir con orgullo:
+"Sí... ella es mi amor."
+Y lo más curioso es que, cuando hablábamos de cómo era la mujer que siempre había imaginado para mi vida, el resultado siempre terminaba siendo tú.
+No mames...
+Hasta yo me sorprendía.
+JAJAJAJA.
+
+Hubo momentos en los que me decías que todavía no sabías qué querías conmigo o que no te sentías lista.
+Y sí...
+No te voy a mentir.
+Eso me ponía un poquito triste.
+No porque sintiera que me debías algo.
+Jamás.
+Todo lo que hice por ti siempre nació de manera completamente incondicional.
+Nunca esperando algo a cambio.
+Lo hacía porque quería que supieras que había alguien que te quería muchísimo, que te admiraba profundamente y que era inmensamente feliz cuando te veía sonreír.
+Porque, de verdad...
+No sabes qué tan feliz soy cuando tú eres feliz.
+
+Aun así, siempre respeté tus tiempos.
+Porque antes de querer que fueras mi pareja, quería que te sintieras tranquila.
+Te respeto demasiado.
+Respeto tu historia.
+Respeto tus miedos.
+Y admiro profundamente la mujer tan increíble que eres.
+
+Nunca quise correr.
+Porque tú misma me enseñaste que todo lo bonito necesita tiempo, paciencia y esfuerzo.
+Y decidí creer en eso.
+Mientras tanto...
+Yo seguía enamorándome un poquito más de ti.
+Ya esperaba con emoción nuestros encuentros.
+Esperaba tus besitos en el cachete como niño chiquito. JAJAJA.
+Esperaba poder verte aunque fuera una sola vez a la semana.
+Y con eso ya era feliz.
+
+Fue ahí cuando entendí algo que hasta el día de hoy me sorprende.
+Nunca me había visto haciendo todas estas cosas por alguien.
+Las cartas.
+Las flores.
+Las canciones.
+Los pequeños detalles.
+Todo eso nació únicamente porque eras tú.
+Porque jamás imaginé querer a alguien de esta manera.
+
+Y creo que nunca voy a volver a dedicar esas canciones.
+No porque no existan otras bonitas.
+Sino porque esas ya tienen dueña.
+Llevan tu nombre.
+
+Cuando planeé regalarte los lirios seguía sintiendo nervios.
+Pero había algo mucho más fuerte que el miedo.
+Las ganas de verte sonreír.
+Porque, al final del día, entendí que el amor no se demuestra con cosas enormes.
+Se demuestra con pequeños detalles hechos con el corazón.
+Y si una sonrisa tuya era el resultado...
+Entonces todo había valido completamente la pena. ❤️</div>
 
             <div class="firma-final">Leonardo</div>
         </div>
     </div>
 
+    <!-- VENTANA 2: UNA CARTA ESCRITA CON "TE EXTRAÑO" -->
     <div class="ventana-overlay" id="ventanaCartaTeExtrano" onclick="cerrarVentanaClickFuera(event, 'ventanaCartaTeExtrano')">
         <div class="tarjeta-ventana">
             <button class="btn-cerrar" onclick="cerrarVentana('ventanaCartaTeExtrano')">&times;</button>
@@ -432,20 +531,73 @@ Así fue como me enamoré de ti. Poquito a poquito. Sin prisas. Sin forzarlo. Y 
                 <h2 class="ventana-title">Una carta escrita con te extraño</h2>
             </div>
 
-            <div class="parrafo-destacado">Si estás leyendo esta parte, significa que esta sí la escribí hace muy poquito. Es la más reciente de todas. Y creo que por eso también es la más sincera.</div>
+            <div class="bloque-texto">Y bueno...
+Si estás leyendo esta parte, significa que esta sí la escribí hace muy poquito.
+Es la más reciente de todas.
+Y creo que por eso también es la más sincera.
 
-            <div class="bloque-texto">La verdad... Te extraño muchísimo. Extraño volver a verte, abrazarte y sentir esa tranquilidad que solo encontraba cuando estaba contigo. Es raro cómo funciona mi cabeza, pero cuando te abrazaba siempre hacía lo mismo: sin darme cuenta respiraba profundo, como si quisiera guardar tu perfume y ese momento para recordarlo después. Y ahí sabía que eras tú.
+La verdad...
+Te extraño muchísimo.
+Extraño volver a verte, abrazarte y sentir esa tranquilidad que solo encontraba cuando estaba contigo.
+Es raro cómo funciona mi cabeza, pero cuando te abrazaba siempre hacía lo mismo: sin darme cuenta respiraba profundo, como si quisiera guardar tu perfume y ese momento para recordarlo después.
+Y ahí sabía que eras tú.
 
-Extraño tu carita. Tu sonrisa. Tus ojitos. Tu voz. Extraño que me cuentes cómo estuvo tu día, mandarte un mensaje y saber de ti. Extraño hasta las cosas más simples, porque al final fueron esas las que más feliz me hacían.
+Extraño tu carita.
+Tu sonrisa.
+Tus ojitos.
+Tu voz.
+Extraño que me cuentes cómo estuvo tu día, mandarte un mensaje y saber de ti.
+Extraño hasta las cosas más simples, porque al final fueron esas las que más feliz me hacían.
 
-Quiero que sepas algo. Estas cartas ya no se tratan de pedir perdón. Tampoco buscan convencerte de nada. Las escribí porque ya las tenía en mi corazón desde hace tiempo y porque quería que supieras cuánto te amo, cuánto te extraño y cuánto significaste para mí. Son, simplemente, la manera más honesta que encontré de decirte todo lo que nunca quería dejar sin expresar.
+Y quiero que sepas algo.
+Estas cartas ya no se tratan de pedir perdón.
+Tampoco buscan convencerte de nada.
+Las escribí porque ya las tenía en mi corazón desde hace tiempo y porque quería que supieras cuánto te amo, cuánto te extraño y cuánto significaste para mí.
+Son, simplemente, la manera más honesta que encontré de decirte todo lo que nunca quería dejar sin expresar.
 
-Te amo muchísimo. Andando y si algo quiero que recuerdes después de leer todas estas cartas, es que cada palabra nació desde el lugar más sincero de mi corazón.</div>
+Nunca pensé enamorarme así.
+De hecho, si soy completamente sincero...
+Ni siquiera quería enamorarme.
+Después de tanto tiempo solo, ya me había acostumbrado a esa vida.
+Pensaba que estaba bien así.
+Y entonces llegaste tú...
+Y cambiaste por completo todo lo que yo creía saber sobre mí.
+
+Now me cuesta imaginar un futuro donde no estés.
+Porque cuando pensaba en mis planes, inevitablemente aparecía tú.
+Quería que formaras parte de mi presente.
+De mi futuro.
+Y seguir creando recuerdos para que, algún día, también formaras parte de ese pasado bonito al que siempre quisiera volver.
+
+No sabes la suerte que siento de haberte conocido.
+Gracias por cada abrazo.
+Por cada beso en el cachete.
+Por cada conversación.
+Por cada risa.
+Por cada canción.
+Por cada detalle.
+Y, sobre todo...
+Gracias por quererme.
+Porque hiciste sentir querido a un hombre que ya se había acostumbrado a caminar solo.
+
+Te amo muchísimo.
+Y si algo quiero que recuerdes después de leer todas estas cartas, es que cada palabra nació desde el lugar más sincero de mi corazón.
+
+Bueno...
+Ya hablé demasiado. JAJAJA.
+Ahora viene una parte que también me hacía mucha ilusión.
+Te preparé unas canciones.
+Algunas son alegres, otras melancólicas, otras hablan de corazones rotos... pero todas tienen una frase que, de alguna manera, me recuerda a ti o a lo que vivimos.
+Porque incluso las canciones más tristes, a veces esconden las declaraciones de amor más bonitas.
+
+Así que...
+Bienvenida a la parte donde la música va a decir todo aquello que mi corazón todavía no alcanza a explicar. ❤️</div>
 
             <div class="firma-final">Leonardo</div>
         </div>
     </div>
 
+    <!-- VENTANA 3: PLAYLIST (MISTERIOSA Y SIN TIEMPOS) -->
     <div class="ventana-overlay" id="ventanaPlaylist" onclick="cerrarVentanaClickFuera(event, 'ventanaPlaylist')">
         <div class="tarjeta-ventana">
             <button class="btn-cerrar" onclick="cerrarVentana('ventanaPlaylist')">&times;</button>
@@ -459,6 +611,7 @@ Te amo muchísimo. Andando y si algo quiero que recuerdes después de leer todas
             </div>
 
             <div class="lista-canciones">
+                <!-- CANCIÓN 17 -->
                 <div class="tarjeta-cancion">
                     <div class="reproductor-header">
                         <button class="btn-reproducir" onclick="switchTrack('cancion17.mp3', 92, 110)">▶</button>
@@ -469,6 +622,7 @@ Te amo muchísimo. Andando y si algo quiero que recuerdes después de leer todas
                     <p class="cuadro-dedicatoria">Solo puedo decir que no importa las horas que pasen, pero siempre me va a encantar ver tus hermosos ojos. Vamos a decirlo así, disociarme viendo tus ojos.</p>
                 </div>
 
+                <!-- CANCIÓN 18 -->
                 <div class="tarjeta-cancion">
                     <div class="reproductor-header">
                         <button class="btn-reproducir" onclick="switchTrack('cancion18.mp3', 36, 62)">▶</button>
@@ -479,6 +633,7 @@ Te amo muchísimo. Andando y si algo quiero que recuerdes después de leer todas
                     <p class="cuadro-dedicatoria">Cuando te veo en la semana, es una forma de sentir que como que me llenas las pilas de nuevo, por decirlo así. Como que estoy al 100, es como que eres mi cargador emocional.</p>
                 </div>
 
+                <!-- CANCIÓN 19 -->
                 <div class="tarjeta-cancion">
                     <div class="reproductor-header">
                         <button class="btn-reproducir" onclick="switchTrack('cancion19.mp3', 76, 151)">▶</button>
@@ -489,6 +644,7 @@ Te amo muchísimo. Andando y si algo quiero que recuerdes después de leer todas
                     <p class="cuadro-dedicatoria">Ya la canción dice todo lo que quiero decirte (te escribe el Leonardo de hoy).</p>
                 </div>
 
+                <!-- CANCIÓN 20 -->
                 <div class="tarjeta-cancion">
                     <div class="reproductor-header">
                         <button class="btn-reproducir" onclick="switchTrack('cancion20.mp3', 22, 45)">▶</button>
@@ -499,6 +655,7 @@ Te amo muchísimo. Andando y si algo quiero que recuerdes después de leer todas
                     <p class="cuadro-dedicatoria">El Leonardo de ahora te escribe jajajaj y si crj te extraño :(.</p>
                 </div>
 
+                <!-- CANCIÓN 21 -->
                 <div class="tarjeta-cancion">
                     <div class="reproductor-header">
                         <button class="btn-reproducir" onclick="switchTrack('cancion21.mp3', 14, 50)">▶</button>
@@ -509,6 +666,7 @@ Te amo muchísimo. Andando y si algo quiero que recuerdes después de leer todas
                     <p class="cuadro-dedicatoria">El Leonardo de ahora: No me dejes solo crj...:( (jajajaj se que no depende de mi pero si te vas ufff como ya te amo mucho algo de mi se iria contigo...)</p>
                 </div>
 
+                <!-- CANCIÓN 22 -->
                 <div class="tarjeta-cancion">
                     <div class="reproductor-header">
                         <button class="btn-reproducir" onclick="switchTrack('cancion22.mp3', 119, 157)">▶</button>
@@ -519,6 +677,7 @@ Te amo muchísimo. Andando y si algo quiero que recuerdes después de leer todas
                     <p class="cuadro-dedicatoria">Esta ya de la sabes siempre te lo dije pero la canción habla por mi mismo, es decir si soy ajajajaj</p>
                 </div>
 
+                <!-- CANCIÓN 23 -->
                 <div class="tarjeta-cancion">
                     <div class="reproductor-header">
                         <button class="btn-reproducir" onclick="switchTrack('cancion23.mp3', 95, 132)">▶</button>
@@ -529,6 +688,7 @@ Te amo muchísimo. Andando y si algo quiero que recuerdes después de leer todas
                     <p class="cuadro-dedicatoria">Posiblemente sea una de las más tristes que escuches pero es de un corazón desesperado por ti mi amor.....</p>
                 </div>
 
+                <!-- CANCIÓN 24 -->
                 <div class="tarjeta-cancion">
                     <div class="reproductor-header">
                         <button class="btn-reproducir" onclick="switchTrack('cancion24.mp3', 46, 98)">▶</button>
@@ -539,6 +699,7 @@ Te amo muchísimo. Andando y si algo quiero que recuerdes después de leer todas
                     <p class="cuadro-dedicatoria">Es una forma de decir que zhy si soy celoso jajajaj o que quiero en todo en esta vida contigo</p>
                 </div>
 
+                <!-- CANCIÓN 25 -->
                 <div class="tarjeta-cancion">
                     <div class="reproductor-header">
                         <button class="btn-reproducir" onclick="switchTrack('cancion25.mp3', 72, 119)">▶</button>
@@ -549,6 +710,7 @@ Te amo muchísimo. Andando y si algo quiero que recuerdes después de leer todas
                     <p class="cuadro-dedicatoria">La canción más migajera que te dedicaré pero si quiero que seas feliz siempre verte feliz será uno de mi objetivos contigo....</p>
                 </div>
 
+                <!-- CANCIÓN 26 -->
                 <div class="tarjeta-cancion">
                     <div class="reproductor-header">
                         <button class="btn-reproducir" onclick="switchTrack('cancion26.mp3', 108, 150)">▶</button>
@@ -559,6 +721,7 @@ Te amo muchísimo. Andando y si algo quiero que recuerdes después de leer todas
                     <p class="cuadro-dedicatoria">Es tan cursi esta canción pero así me siento contigo, o son la palabras que te diría mi amor y solo diré siempre juntitos mi amor...</p>
                 </div>
 
+                <!-- CANCIÓN 27 -->
                 <div class="tarjeta-cancion">
                     <div class="reproductor-header">
                         <button class="btn-reproducir" onclick="switchTrack('cancion27.mp3', 45, 110)">▶</button>
